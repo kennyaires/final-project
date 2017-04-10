@@ -1,0 +1,246 @@
+/*
+ * Start Bootstrap - Full Width Pics (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    background-color: #CAD2D3;
+    margin-top: 0px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.image-bg-fluid-height,
+.image-bg-fixed-height {
+    text-align: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    -webkit-filter: grayscale(85%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(85%);
+    /* adds blur to the bg img
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px); */
+}
+
+.image-bg-fluid-height {
+	background: url('https://source.unsplash.com/collection/605554/1920x500') no-repeat center center scroll;
+    padding: 86px 0;
+}
+
+.image-bg-fixed-height {
+	background: url('https://source.unsplash.com/collection/605554/1920x500') no-repeat center center scroll;
+    height: 450px;
+}
+
+.img-center {
+	margin-top: 90px;
+	margin: 0px 0;
+}
+
+.container-fluid
+{
+    /* height of these elements */
+    height: 100%;
+
+    /* no margin around these elements */
+    margin: 0;
+
+    /* disable scrollbars */
+    overflow: hidden;
+
+    /* no padding within these elements */
+    padding: 0;
+}
+
+/* center form */
+#form
+{
+    /* position form "absolutely" where we want it */
+    position: absolute;
+
+    /* distance from top edge of viewport */
+    top: 195px;
+
+    /* form's width */
+    width: 100%;
+}
+#form .form-group
+{
+    /* block-level flex container */
+    display: flex;
+
+    /* center container's content */
+    justify-content: center;
+}
+
+/* stylize text box */
+#q
+{
+    /* override typeahead.js's transparent background */
+    background-color: #ffffff !important;
+
+    /* text box's width */
+    width: 300px;
+}
+
+/* stylize info window */
+#info
+{
+    /* no margin around this element */
+    margin: 0;
+
+    /* allow scrollbars as needed */
+    overflow: auto;
+}
+#info ul
+{
+    margin-bottom: 0;
+}
+
+section {
+    padding: 75px 0;
+}
+
+.section-heading {
+    margin: 30px 0;
+    font-size: 4em;
+}
+
+.section-lead {
+    margin: 30px 0;
+}
+
+.section-paragraph {
+    margin: 30px 0;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.navbar-custom {
+    background-image:url('navb-bg.fw.png'); background-repeat:repeat;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    font: 17px Arial, Sans-Serif;
+    letter-spacing: -1px; 
+    color:#666666;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+    color: #555555;
+    background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    background-color: #DDDDDD;
+    color: #000;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+
+.navbar-custom .navbar-brand {
+  background: url(logo.png) center / contain no-repeat;
+  width: 200px;
+  transform: translateX(-50%);
+  left: 20%;
+  position: absolute;
+  height: 70px;
+}
+
+/* EXAMPLE 3
+
+line height is 20px by default so add 30px top and bottom to equal the new .navbar-brand 80px height  */
+
+.navbar-custom .nav >li >a {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.navbar-custom .navbar-toggle {
+  padding: 10px;
+  margin: 25px 15px 25px 0;
+}
+.navbar-custom .navbar-brand {
+    color:#777777;
+}
+.navbar-custom .navbar-toggle {
+    background-color:#CCCCCC;
+}
+.navbar-custom .icon-bar {
+    background-color:#777777;
+}
+
+h2 { 
+   position: absolute; 
+   top: 65px; 
+   left: 0; 
+   width: 100%; 
+}
+
+h2 span { 
+   color: white; 
+   font: 21px/45px Arial, Sans-Serif;
+   line-height: 90%;
+   letter-spacing: -1px;
+       background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.3);
+   padding: 4px; 
+}
+
+#map { height: 385px; background-color: #CAD2D3; width:auto;}
+
+@media(max-width:768px) {
+    section {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    
+    .navbar-custom {
+    background-image:url('navb-bgmob.fw.png'); background-repeat:repeat;
+    color:#ffffff;
+    border-radius:0;
+}
+
+#map { height: 360px; background-color: #CAD2D3; width:auto;}
+
+    .section-heading {
+        font-size: 2em;
+    }
+    .navbar-custom .navbar-brand {
+      padding: 0px;
+      transform: translateX(-50%);
+      left: 50%;
+      position: absolute;
+    }
+    .navbar-custom .navbar-brand>img {
+      height: 100%;
+      width: auto;
+      padding: 7px 14px; 
+    }
+    
+    h2 { top: 70px;}
+    
+    h2 span { 
+       font: 18px/45px Arial, Sans-Serif;
+       line-height: 30%;
+    }
+}
