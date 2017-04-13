@@ -6,7 +6,7 @@
         <meta charset="utf-8"/>
         <meta content="initial-scale=1, width=device-width" name="viewport"/>
 
-    <title>Granfon | What's playing now on earth?</title>
+    <title>Granfon | What's playing now around the world?</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
@@ -14,8 +14,17 @@
     <!-- Custom CSS -->
     <link href="{{ url_for('static', filename='full-width-pics.css') }}" rel="stylesheet"/>
     
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- http://jquery.com/ -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- https://github.com/corejavascript/typeahead.js/blob/master/doc/jquery_typeahead.md -->
+    <script src="https://cdn.rawgit.com/corejavascript/typeahead.js/master/dist/typeahead.jquery.js"></script>
+    
+    <!-- get Toastr -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css' rel='stylesheet' />
     
     <!-- Map Box -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.0/mapbox-gl.js'></script>
@@ -23,6 +32,12 @@
     
     <!-- http://handlebarsjs.com/ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    
+    <!-- Magnific Popup core CSS file -->
+    <link href="{{ url_for('static', filename='magnific-popup.css') }}" rel="stylesheet"/>
+
+    <!-- Magnific Popup core JS file -->
+    <script src="{{ url_for('static', filename='jquery.magnific-popup.min.js') }}"></script>
 
     <!-- http://stewartjpark.com/Flask-JSGlue/ -->
     {{ JSGlue.include() }}
@@ -57,8 +72,8 @@
             </div>
           <div id="navbar2" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#bottom">About</a></li>
+          <li><a href="#bottom">Contact</a></li>
             </ul>
           </li>
         </ul>
@@ -71,7 +86,7 @@
     <!-- Full Width Image Header with Logo -->
     <!-- Image backgrounds are set within the full-width-pics.css file. -->
     <header class="image-bg-fluid-height">
-        <h2><span>What's playing now around the world?</br>The most popular songs, albums and books.</h2></span>
+        <h2><span>What's playing now around the world?</br>The most downloaded songs in the countries.</h2></span>
     </header>
 
     <!-- Content Section -->
@@ -84,43 +99,94 @@
         <form id="form">
             <div class="form-group">
                 <label class="sr-only" for="q">Country Name</label>
-                <input class="form-control" id="q" placeholder="Country Name" type="text"/>
+                <input class="form-control" autocomplete="off" id="q" placeholder="Country Name" type="text"/>
             </div>
         </form>
+        
+        <center><h3><span>Click on the plus (+) icon within the territory.</h3></span></center>
             
     </div>
     <!-- Fixed Height Image Aside -->
     <!-- Image backgrounds are set within the full-width-pics.css file. -->
     <aside class="image-bg-fixed-height"></aside>
-
+    
     <!-- Content Section -->
     <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="section-heading">Section Heading</h1>
-                    <p class="lead section-lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <p class="section-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
+        <div class="chart">
+            <div class="container">
+        <div class="row">
+           <div class="col-lg-8 row-no-padding"><div class="return"><a href="#">Return to map</a></div>
+                        <h1 class="section-heading" id="chart">Top 10 songs - {{country}}</h1>
+    	    <div class="col-md-6 row-no-padding section-heading">
+    	    <!-- chart begins, top 5 -->
+    	    {% for obj in chart1 %}
+                <div class="media">
+                  <div class="media-left">
+                      <a class="test-popup-link" href="{{obj.art}}"><img img class="media-object" src="{{obj.art}}" alt="..."></a>
+                      <h1><span>#{{obj.position}}</h1></span>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">{{obj.name}}</h4>
+                    <button type="button" class="btn btn-primary btn-xx"><a href="{{obj.itunes}}" target=_blank>iTunes</button></a> <button type="button" class="btn btn-danger btn-xx"><a class="video" href="{{obj.video}}">Video</button></a>
+                  </div>
                 </div>
+          {% endfor %}
             </div>
-            <!-- /.row -->
+    	        <div class="col-md-6 row-no-padding section-heading">
+    	                	    <!-- chart begins, top 5 -->
+                 {% for obj in chart2 %}
+                <div class="media">
+                  <div class="media-left">
+                      <a class="test-popup-link" href="{{obj.art}}"><img img class="media-object" src="{{obj.art}}" alt="..."></a>
+                      <h1><span>#{{obj.position}}</h1></span>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">{{obj.name}}</h4>
+                    <button type="button" class="btn btn-primary btn-xx"><a href="{{obj.itunes}}" target=_blank>iTunes</button></a> <button type="button" class="btn btn-danger btn-xx"><a class="video" href="{{obj.video}}">Video</button></a>
+                  </div>
+                </div>
+          {% endfor %}
+                </div>
+              </div>
+              
+              <!-- footer chart -->
+              <div class="col-lg-8 row-no-padding">
+                          <!-- AddToAny BEGIN -->
+                        <div class="share-options">
+                        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                        <a class="a2a_button_google_plus"></a><div class="return"><a href="#">Return to map</a></div>
+                        </div>
+                        <script async src="https://static.addtoany.com/menu/page.js"></script>
+                        <!-- AddToAny END -->
+                    </div>
+            </div>
         </div>
+    </div>
+        <!-- /.chart -->
+    </div>
         <!-- /.container -->
     </section>
+
+    <!-- Fixed Height Image Aside -->
+    <!-- Image backgrounds are set within the full-width-pics.css file. -->
+    <aside class="image-bg-fixed-height"></aside>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Granfon 2017</p>
+                    <p id="bottom">Copyright &copy; Granfon 2017</p>
                 </div>
             </div>
             <!-- /.row -->
         </div>
         <!-- /.container -->
     </footer>
-
+  
 </body>
 
 </html>
