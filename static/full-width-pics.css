@@ -9,6 +9,7 @@ body {
     margin-top: 0px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+
 .image-bg-fluid-height,
 .image-bg-fixed-height {
     text-align: center;
@@ -33,7 +34,7 @@ body {
 
 .image-bg-fixed-height {
 	background: url('https://source.unsplash.com/collection/605554/1920x500') no-repeat center center scroll;
-    height: 450px;
+    height: 280px;
 }
 
 .img-center {
@@ -56,6 +57,62 @@ body {
     padding: 0;
 }
 
+/* Chart Styles */
+.chart
+{
+    background: url('chartbkg.jpg');
+}
+.media
+{
+           background: #FFF; /* fallback color */
+   background: rgba(7, 7, 7, 0.4);
+    position: relative;
+    margin: 5px;
+    padding: 2px;
+}
+.mediat15
+{
+    background: #DADFE0;
+    position: relative;
+    margin: 1px;
+    padding: 1px;
+}
+.media-body
+{
+    padding: 0px
+}
+.media-heading
+{
+    background: #676767;
+    color: #FFF;
+}
+.media-object
+{
+  position: relative;
+  padding: 5px;
+  background:#D6D6D1;
+  height:145px;
+  width:145px;
+}
+h1{
+    padding: 0;
+    margin: 0;
+}
+h1 span {
+   position: absolute;
+   top: 1px;
+   color: white; 
+   font: 25px Arial;
+   line-height: 90%;
+   letter-spacing: -1px;
+       background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.5);
+   padding: 2px;
+}
+.row-no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
 /* center form */
 #form
 {
@@ -87,27 +144,77 @@ body {
     width: 300px;
 }
 
-/* stylize info window */
-#info
-{
-    /* no margin around this element */
-    margin: 0;
-
-    /* allow scrollbars as needed */
-    overflow: auto;
-}
-#info ul
-{
-    margin-bottom: 0;
-}
-
 section {
-    padding: 75px 0;
+    padding: 0px 0;
+}
+
+/* stylize typeahead.js a la http://twitter.github.io/typeahead.js/css/examples.css */
+.tt-menu
+{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 1px;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 300px;
+}
+.tt-suggestion.tt-cursor {
+    background-color: #0097cf;
+    color: #fff;
+    cursor: pointer;
+}
+.tt-suggestion {
+    margin: 0;
+    padding: 6px 12px;
 }
 
 .section-heading {
-    margin: 30px 0;
+    margin: 5px 0;
     font-size: 4em;
+        background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 0.3);
+    color: #FFF;
+    padding:3px;
+    font: 30px Arial;
+}
+
+.share-options {
+    margin: 5px 0;
+    font-size: 4em;
+        background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 0.3);
+    color: #FFF;
+    padding:3px;
+    font: 19px Arial;
+}
+
+a:link {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #fff
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #fff
+}
+
+a:active {
+    text-decoration: underline;
+    color: #fff
+}
+
+.return
+{
+    text-align: right;
+    float: right;
+    padding:8px;
+    font: 16px Arial;
 }
 
 .section-lead {
@@ -121,6 +228,8 @@ section {
 footer {
     margin: 50px 0;
 }
+
+.navbar-fixed-top { position: absolute!important; }
 
 .navbar-custom {
     background-image:url('navb-bg.fw.png'); background-repeat:repeat;
@@ -202,11 +311,28 @@ h2 span {
    line-height: 90%;
    letter-spacing: -1px;
        background: rgb(0, 0, 0); /* fallback color */
-   background: rgba(0, 0, 0, 0.3);
+   background: rgba(0, 0, 0, 0.5);
    padding: 4px; 
 }
 
 #map { height: 385px; background-color: #CAD2D3; width:auto;}
+
+h3{
+    padding: 0px;
+    margin: 0px;
+}
+h3 span {
+   position: absolute;
+   top: 532px;
+   left: 480px;
+   color: white; 
+   font: 17px Arial;
+   line-height: 90%;
+   letter-spacing: -1px;
+       background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 3px;
+}
 
 @media(max-width:768px) {
     section {
@@ -220,8 +346,10 @@ h2 span {
     border-radius:0;
 }
 
-#map { height: 360px; background-color: #CAD2D3; width:auto;}
-
+    #map { height: 360px; background-color: #CAD2D3; width:auto;}
+    
+    .img-country { display: none; }
+    
     .section-heading {
         font-size: 2em;
     }
@@ -242,5 +370,10 @@ h2 span {
     h2 span { 
        font: 18px/45px Arial, Sans-Serif;
        line-height: 30%;
+    }
+    
+    h3 span {
+       top: 482px;
+       left: 30px;
     }
 }
