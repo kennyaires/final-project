@@ -54,7 +54,7 @@ def index():
         if i < 5:
             chart1.append(Chart(str(i+1), title, albumart, feed[i]["link"], "https://www.youtube.com/embed/?listType=search&list="+ title +"&autoplay=1"))
         else:
-            chart2.append(Chart(str(i+1), title, albumart, feed[i]["name"], "https://www.youtube.com/embed/?listType=search&list="+ title +"&autoplay=1"))
+            chart2.append(Chart(str(i+1), title, albumart, feed[i]["link"], "https://www.youtube.com/embed/?listType=search&list="+ title +"&autoplay=1"))
         
     return render_template("index.html", country=country_name, chart1=chart1, chart2=chart2)
     
